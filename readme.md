@@ -35,3 +35,19 @@ Golang Restful for Weather is a project that aims provide restful api for weathe
 
 </p>
 
+
+
+
+<!-- links -->
+[your-project-path]:ginhton/golang-restful-for-weather
+[contributors-shield]: https://img.shields.io/github/contributors/ginhton/golang-restful-for-weather.svg?style=flat-square
+[contributors-url]: https://github.com/ginhton/golang-restful-for-weather/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ginhton/golang-restful-for-weather.svg?style=flat-square
+[forks-url]: https://github.com/ginhton/golang-restful-for-weather/network/members
+[stars-shield]: https://img.shields.io/github/stars/ginhton/golang-restful-for-weather.svg?style=flat-square
+[stars-url]: https://github.com/ginhton/golang-restful-for-weather/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ginhton/golang-restful-for-weather.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/ginhton/golang-restful-for-weather.svg
+[license-shield]: https://img.shields.io/github/license/ginhton/golang-restful-for-weather.svg?style=flat-square
+[license-url]: https://github.com/ginhton/golang-restful-for-weather/blob/master/LICENSE.txt
+

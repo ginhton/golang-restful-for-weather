@@ -1,0 +1,39 @@
+#+title: 'outline of work'
+#+author: 'zhao peng'
+
+
+* plan
+** version 0.1
+- target: restful api for weather; working but has a lot of bugs; dirty code
+- tech: go-lang & restful api
+** version 0.2
+- target: restful api for weather; less bug & better/clean code
+- tech: go-lang & restful api
+** version 0.3
+- target: v0.2 & container
+- tech: go-lang & restful api & container
+** version 0.4
+- target: v0.3 & better readme & better doc
+- tech: literary writing
+** version 0.5
+- target:  v0.4 & (? package & release)
+- tech: ?
+** version 1.0
+- target: a wonderful product (app? cli?)
+- tech: all
+  
+* considerations
+** github usage
+*** readme
+*** branch
+** container technology
+*** docker
+*** os? other env?
+** go-lang
+*** grammer
+*** packages
+** restful api
+*** cencept
+*** requirements
+** package and release
+*** ?

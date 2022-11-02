@@ -16,12 +16,28 @@
   - [X] readme
     - [X] what functions now
     - [X] how to use
- - attention: this has A LOT OF BUGS and DIRTY CODE!
-
+- attention: this has A LOT OF BUGS and DIRTY CODE!
   
 ** version 0.2
 - target: restful api for weather; less bug & better/clean code
 - tech: go-lang & restful api
+- todo [75%]
+  - restful api -> we don't need POST, PUT and DELETE in this case, so this part is canncelled or delayed
+  - [X] mark out which part of code can be more clean
+  - [X] mark out which part of code can be optimization
+  - [X] clean list
+    - [X] remove useless lines
+    - [X] move related code together
+    - [X] add comment for core code
+    - [X] adjust indentation and blank lines
+  - [ ] optimization list (delay, this part will cost a lot of time)
+    - [ ] exception handler (wrong inputs, server abnormal response)
+    - [ ] error handle (program crash, funtion return error)
+    - [ ] weatherapiforecast/weatherapicurrent combine same code
+    - [ ] To skip a field in when encoding JSON simply use “-“ as an attribute.   
+  - optional
+    - front end
+    - add screenshots into readme
 ** version 0.3
 - target: v0.2 & container
 - tech: go-lang & restful api & container

@@ -3,21 +3,18 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	//	"strconv"
 	"encoding/json"
 	"log"
 	"net/http"
-
 	
 	"github.com/gorilla/mux"
 )
 
-// {
-//    "location":{"name":"Beijing","region":"Beijing","country":"China","lat":39.93,"lon":116.39,"tz_id":"Asia/Shanghai","localtime_epoch":1667351206,"localtime":"2022-11-02 9:06"},
-//    "current":{"last_updated_epoch":1667350800,"last_updated":"2022-11-02 09:00","temp_c":10.3,"temp_f":50.5,"is_day":1,"condition":{"text":"Partly cloudy","icon":"//cdn.weatherapi.com/weather/64x64/day/116.png","code":1003},"wind_mph":3.8,"wind_kph":6.1,"wind_degree":27,"wind_dir":"NNE","pressure_mb":1023.0,"pressure_in":30.2,"precip_mm":0.0,"precip_in":0.0,"humidity":28,"cloud":45,"feelslike_c":9.8,"feelslike_f":49.6,"vis_km":10.0,"vis_miles":6.0,"uv":4.0,"gust_mph":4.7,"gust_kph":7.6}
-//    }
+
 
 // from https://mholt.github.io/json-to-go/
+// converts JSON into a Go type definition
+
 type WeatherData struct {
 	Location struct {
 		Name           string  `json:"name"`
@@ -180,15 +177,20 @@ type ForecastData struct {
 		} `json:"forecastday"`
 	} `json:"forecast"`
 }
+
+
 type ResponseCurrentData struct {
-	Name string `json:"name"`
-	TempC float64 `json:"temp_c"`
+	Name		string		`json:"name"`
+	TempC		float64 	`json:"temp_c"`
 }
 
+
 type ResponseForecastData struct {
-	Name string `json:"name"`
-	TempAvgs []float64 `json:"temp_avgs"`
+	Name		string	`json:"name"`
+	TempAvgs	[]float64	`json:"temp_avgs"`
 }
+
+
 
 func weatherapicurrent(city string) ResponseCurrentData {
 	// http://api.weatherapi.com/v1/current.json?key=6810fd11c3c545fe97504231220211&q=Beijing
@@ -207,7 +209,6 @@ func weatherapicurrent(city string) ResponseCurrentData {
 	q := req.URL.Query()
 	q.Add("q", city)
 	q.Add("key", key)
-	
 	req.URL.RawQuery = q.Encode()
 
 	resp, err := client.Do(req)
@@ -219,9 +220,6 @@ func weatherapicurrent(city string) ResponseCurrentData {
 	if err != nil {
 		log.Fatal(err)
 	}
-		
-	fmt.Println(resp.Status)
-	fmt.Println(string(responseBody))
 
 	var weatherdata WeatherData
 	err = json.Unmarshal(responseBody, &weatherdata)
@@ -236,6 +234,7 @@ func weatherapicurrent(city string) ResponseCurrentData {
 	return responsecurrentdata
 }
 
+
 func weatherapiforecast(city string, forecast string) ResponseForecastData {
 	// http://api.weatherapi.com/v1/current.json?key=6810fd11c3c545fe97504231220211&q=Beijing&days=3
 	key := "6810fd11c3c545fe97504231220211"
@@ -244,7 +243,6 @@ func weatherapiforecast(city string, forecast string) ResponseForecastData {
 	url = url + page
 	
 	client := &http.Client{}
-
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -254,7 +252,6 @@ func weatherapiforecast(city string, forecast string) ResponseForecastData {
 	q.Add("q", city)
 	q.Add("key", key)
 	q.Add("days", forecast)
-
 	req.URL.RawQuery = q.Encode()
 
 	resp, err := client.Do(req)
@@ -266,35 +263,28 @@ func weatherapiforecast(city string, forecast string) ResponseForecastData {
 	if err != nil {
 		log.Fatal(err)
 	}
-		
-	//	fmt.Println(resp.Status)
-	//	fmt.Println(string(responseBody))
 
 	var forecastdata ForecastData
 	err = json.Unmarshal(responseBody, &forecastdata)
 	if err != nil {
 		log.Fatal(err)
 	}
-	
-	//	fmt.Println(forecastdata)
+
 	var responseforecastdata ResponseForecastData
 	responseforecastdata.Name = city;
 	for i := 0; i < len(forecastdata.Forecast.Forecastday); i++ {
-		//fmt.Printf("%d : %f\n", i, forecastdata.Forecast.Forecastday[i].Day.AvgtempC)
 		responseforecastdata.TempAvgs = append(responseforecastdata.TempAvgs, forecastdata.Forecast.Forecastday[i].Day.AvgtempC)
 	}
 	
 	return  responseforecastdata;
 }
 
+
 func welcome(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "hello, world!")
 }
 
-type Weather struct {
-	temp_C float64 `json:"temperature"`
-	city string `json:"city"`
-}
+
 func queryCurrent(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	city := vars["city"]
@@ -302,14 +292,17 @@ func queryCurrent(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(responsedata)
 }
+
+
 func queryForecast(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	city := vars["city"]
 	forecast := vars["forecast"]
 	responsedata := weatherapiforecast(city, forecast)
-	// json.NewEncoder(w).Encode(map[string]string{"temperature":forecast, "city":city})
+
 	json.NewEncoder(w).Encode(responsedata)
 }
+
 
 func handleRequests() {
 	myRouter := mux.NewRouter().StrictSlash(true)
@@ -319,7 +312,9 @@ func handleRequests() {
 	log.Fatal(http.ListenAndServe(":8081", myRouter))
 }
 
-
+//              |------->welcome
+// main->handleRequests->queryCurret
+//              |_____-->queryForecast
 func main() {
 	handleRequests()
 }

@@ -1,0 +1,5 @@
+1. request: https://api.weatherapi.com/v1/current.json?q=Beijing&key=6810fd11c3c545fe97504231220211
+   data: {
+   "location":{"name":"Beijing","region":"Beijing","country":"China","lat":39.93,"lon":116.39,"tz_id":"Asia/Shanghai","localtime_epoch":1667351206,"localtime":"2022-11-02 9:06"},
+   "current":{"last_updated_epoch":1667350800,"last_updated":"2022-11-02 09:00","temp_c":10.3,"temp_f":50.5,"is_day":1,"condition":{"text":"Partly cloudy","icon":"//cdn.weatherapi.com/weather/64x64/day/116.png","code":1003},"wind_mph":3.8,"wind_kph":6.1,"wind_degree":27,"wind_dir":"NNE","pressure_mb":1023.0,"pressure_in":30.2,"precip_mm":0.0,"precip_in":0.0,"humidity":28,"cloud":45,"feelslike_c":9.8,"feelslike_f":49.6,"vis_km":10.0,"vis_miles":6.0,"uv":4.0,"gust_mph":4.7,"gust_kph":7.6}
+   }

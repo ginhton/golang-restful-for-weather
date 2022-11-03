@@ -1,9 +1,9 @@
 #+title: 'outline of work'
 #+author: 'zhao peng'
-
+#+TODO: TODO SKIP | DONE PARTDONE
 
 * plan
-** version 0.1
+** DONE version 0.1
 - target: restful api for weather; working but has a lot of bugs; dirty code
 - tech: go-lang & restful api
 - todo [100%]
@@ -18,7 +18,7 @@
     - [X] how to use
 - attention: this has A LOT OF BUGS and DIRTY CODE!
   
-** version 0.2
+** PARTDONE version 0.2
 - target: restful api for weather; less bug & better/clean code
 - tech: go-lang & restful api
 - todo [75%]
@@ -38,7 +38,7 @@
   - optional
     - front end
     - add screenshots into readme
-** version 0.3
+** DONE version 0.3
 - target: v0.2 & container
 - tech: go-lang & restful api & container
 - plan [100%]
@@ -48,7 +48,7 @@
 - big problem
   - docker shows timeout the whole morning, no matter what proxy or mirror I use
   - but it turns to work in the afternoon
-** version 0.4
+** DONE version 0.4
 - target: v0.3 & better readme & better doc
 - tech: literary writing
 - plan [100%]
@@ -58,14 +58,17 @@
 - extra plan [100%]
   - [X] add UI for homepage
   - [X] add "/ui/{city}" to show temperature in html
-** version 0.5
+** SKIP version 0.5
 - target:  v0.4 & (? package & release)
 - tech: ?
-- skip
-** version 1.0
+- [X] skip
+** TODO version 1.0
 - target: a wonderful product (app? cli?)
 - tech: all
-  
+- plan [0%]
+  - [ ] weather forecast UI
+  - [ ] optimization list above
+  - [ ] github release
 * considerations
 ** github usage
 *** readme

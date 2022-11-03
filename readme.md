@@ -23,7 +23,7 @@ Golang Restful for Weather is a project that aims provide restful api for weathe
   <p align="center">
     Provide web api services for weatherapi.com.
     <br />
-    <a href="wiki"><strong>explore more about this project in our docs »</strong></a>
+    <a href="https://github.com/ginhton/golang-restful-for-weather/wiki"><strong>explore more about this project in our docs »</strong></a>
     <br />
     <br />
     <a href="#">Demo</a>

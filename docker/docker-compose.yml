@@ -1,0 +1,7 @@
+ version: "3.7"
+
+ services:
+   grfw_server:
+     build: .
+     ports:
+       - 8081:8081

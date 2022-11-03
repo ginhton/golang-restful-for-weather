@@ -41,6 +41,14 @@
 ** version 0.3
 - target: v0.2 & container
 - tech: go-lang & restful api & container
+- plan [100%]
+  - [X] use Dockerfile to build image and script to run container
+  - [X] use docker-compose.yaml
+  - [ ] update readme
+    
+- big problem
+  - docker shows timeout the whole morning, no matter what proxy or mirror I use
+  - but it turns to work in the afternoon
 ** version 0.4
 - target: v0.3 & better readme & better doc
 - tech: literary writing
@@ -69,6 +77,13 @@
 
 * difficulties
 ** slow access to github
+- use proxy
 ** cannot signup weatherapi.com & no access to api
+- use proxy
 ** vpn is not stable
-** json in golang is not easy to dealwith
+- well, just wait
+** json in golang is not easy to deal with
+- learn to deal with
+- JSON-to-GO: https://mholt.github.io/json-to-go/
+** container use system proxy
+- https://anthonysun256.github.io/docker-proxy-complete-solution/

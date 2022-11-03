@@ -37,25 +37,24 @@ Golang Restful for Weather is a project that aims provide restful api for weathe
 
 ## toc
 
-- [features](#features)
-- [run](#features)
+- [Features](#Features)
+- [Run](#Run)
 
 
-### features
+### Features
 
 - get temperature for a specific city
 - get average temperatures for a specific city in future N days
 
 
-### run
+### Run
 
 how to run this *script*
 
 ```sh
 git clone https://github.com/ginhton/golang-restful-for-weather
-cd golang-restful-for-weather
-go get -u github.com/gorilla/mux
-go run .
+cd golang-restful-for-weather/docker
+docker-compose up
 ```
 
 now open brower and hit "localhost:8081" which will open our homepage with no function actually.

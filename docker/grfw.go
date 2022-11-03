@@ -182,6 +182,8 @@ type ForecastData struct {
 type ResponseCurrentData struct {
 	Name		string		`json:"name"`
 	TempC		float64 	`json:"temp_c"`
+	Text		string		`json:"text"`
+	Icon		string		`json:"icon"`
 }
 
 
@@ -231,6 +233,8 @@ func weatherapicurrent(city string) ResponseCurrentData {
 	var responsecurrentdata ResponseCurrentData
 	responsecurrentdata.Name = city
 	responsecurrentdata.TempC = weatherdata.Current.TempC
+	responsecurrentdata.Icon = weatherdata.Current.Condition.Icon
+	responsecurrentdata.Text = weatherdata.Current.Condition.Text
 	return responsecurrentdata
 }
 

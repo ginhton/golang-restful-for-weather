@@ -42,7 +42,7 @@ background-color: black;
 <body>
 <div class='main'>
 	<div class='title'>{{ .Name }}</div>
-	<p>average temperature</p>
+	<p>Average temperature</p>
 	<p>in future N days:</p>
 	{{range $x := .TempAvgs -}}
 	<p>{{ $x }} ℃</p>

@@ -19,11 +19,11 @@ Golang Restful for Weather is a project that aims provide restful api for weathe
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Golang Restful for Weather</h3>
+  <h3 align="center">Golang Restful for WeatherAPI.com</h3>
   <p align="center">
-    a good attempt to do this!
+    Provide web api services for weatherapi.com.
     <br />
-    <a href="#"><strong>explore more about this project in our docs »</strong></a>
+    <a href="wiki"><strong>explore more about this project in our docs »</strong></a>
     <br />
     <br />
     <a href="#">Demo</a>
@@ -49,7 +49,7 @@ Golang Restful for Weather is a project that aims provide restful api for weathe
 
 ### Run
 
-how to run this *script*
+Deploy grfw in bash/sh or whatever like this:
 
 ```sh
 git clone https://github.com/ginhton/golang-restful-for-weather
@@ -57,11 +57,7 @@ cd golang-restful-for-weather/docker
 docker-compose up
 ```
 
-now open brower and hit "localhost:8081" which will open our homepage with no function actually.
-
-when you hit "localhost:8081/api/CITYNAME", such as "Beijing", you will get a json response including temperature today of that city.
-
-when you hit "localhost:8081/api/CITYNAME/DAYS", such as "localhost:8081/api/Beijing/4", you will get a json response including temperatures of the city that you specified in future some days.
+Open browser to check our [main page](http://localhost:8081), [beijing weather with UI](http://localhost:8081/ui/beijing), [beijing weather data](http://localhost:8081/api/beijing), [beijing weather forecast with UI](http://localhost:8081/ui/beijing/3), and [beijing weather forecast data](http://localhost:8081/api/beijing/3)
 
 
 ### Thanks

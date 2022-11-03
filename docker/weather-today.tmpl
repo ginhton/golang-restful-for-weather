@@ -8,6 +8,7 @@ border: 2px;
 font-size: 38px;
 font-weight: bold;
 padding-bottom: 20px;
+text-transform: uppercase;
 }
 .main {
 text-align: center;
@@ -36,12 +37,17 @@ margin:0px;
 padding:0px;
 background-color: black;
 }
+img {
+width: 60%;
+}
 </style>
 </head>
 <body>
 <div class='main'>
 	<div class='title'>{{ .Name }}</div>
-	<p>temperature: {{ .TempC }}</p>
+	<p>Temperature: {{ .TempC }} ℃</p>
+	<p>Condition: {{ .Text }}</p>
+	<img src="{{ .Icon }}" />
 </div>
 </body>
 </html>

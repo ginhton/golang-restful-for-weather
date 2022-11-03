@@ -51,13 +51,13 @@
 ** version 0.4
 - target: v0.3 & better readme & better doc
 - tech: literary writing
-- plan [33%]
+- plan [100%]
   - [X] thanks for other repo or projects
-  - [ ] github project wiki
-  - [ ] change readme
-- extra plan [50%]
+  - [X] github project wiki
+  - [X] change readme
+- extra plan [100%]
   - [X] add UI for homepage
-  - [ ] add "/ui/{city}" to show temperature in html
+  - [X] add "/ui/{city}" to show temperature in html
 ** version 0.5
 - target:  v0.4 & (? package & release)
 - tech: ?

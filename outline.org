@@ -44,17 +44,24 @@
 - plan [100%]
   - [X] use Dockerfile to build image and script to run container
   - [X] use docker-compose.yaml
-  - [ ] update readme
-    
+  - [X] update readme
 - big problem
   - docker shows timeout the whole morning, no matter what proxy or mirror I use
   - but it turns to work in the afternoon
 ** version 0.4
 - target: v0.3 & better readme & better doc
 - tech: literary writing
+- plan [33%]
+  - [X] thanks for other repo or projects
+  - [ ] github project wiki
+  - [ ] change readme
+- extra plan [50%]
+  - [X] add UI for homepage
+  - [ ] add "/ui/{city}" to show temperature in html
 ** version 0.5
 - target:  v0.4 & (? package & release)
 - tech: ?
+- skip
 ** version 1.0
 - target: a wonderful product (app? cli?)
 - tech: all

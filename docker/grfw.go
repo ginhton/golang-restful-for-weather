@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"encoding/json"
 	"log"
 	"net/http"
+	"html/template"
 	
 	"github.com/gorilla/mux"
 )
@@ -191,7 +191,7 @@ type ResponseForecastData struct {
 }
 
 
-
+// get the weather(temperature) for the city today
 func weatherapicurrent(city string) ResponseCurrentData {
 	// http://api.weatherapi.com/v1/current.json?key=6810fd11c3c545fe97504231220211&q=Beijing
 	key := "6810fd11c3c545fe97504231220211"
@@ -234,7 +234,7 @@ func weatherapicurrent(city string) ResponseCurrentData {
 	return responsecurrentdata
 }
 
-
+// get the weather(average temperature) for the city for the next few days
 func weatherapiforecast(city string, forecast string) ResponseForecastData {
 	// http://api.weatherapi.com/v1/current.json?key=6810fd11c3c545fe97504231220211&q=Beijing&days=3
 	key := "6810fd11c3c545fe97504231220211"
@@ -279,9 +279,32 @@ func weatherapiforecast(city string, forecast string) ResponseForecastData {
 	return  responseforecastdata;
 }
 
-
+// main page
 func welcome(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "hello, world!")
+	t, err := template.ParseFiles("index.tmpl")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = t.Execute(w, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+
+func queryCurrentUI(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	city := vars["city"]
+	responsedata := weatherapicurrent(city)
+
+	t, err := template.ParseFiles("weather-today.tmpl")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = t.Execute(w, responsedata)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 
@@ -293,6 +316,23 @@ func queryCurrent(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(responsedata)
 }
 
+
+func queryForecastUI(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	city := vars["city"]
+	forecast := vars["forecast"]
+	responsedata := weatherapiforecast(city, forecast)
+
+	t, err := template.ParseFiles("weather-forecast.tmpl")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = t.Execute(w, responsedata)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+}
 
 func queryForecast(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
@@ -309,6 +349,8 @@ func handleRequests() {
 	myRouter.HandleFunc("/", welcome)
 	myRouter.HandleFunc("/api/{city}", queryCurrent)
 	myRouter.HandleFunc("/api/{city}/{forecast:[1-9]}", queryForecast)
+	myRouter.HandleFunc("/ui/{city}", queryCurrentUI)
+	myRouter.HandleFunc("/ui/{city}/{forecast:[1-9]}", queryForecastUI)
 	log.Fatal(http.ListenAndServe(":8081", myRouter))
 }
 

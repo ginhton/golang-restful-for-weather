@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.title {
+width: 300px;
+border: 2px;
+font-size: 38px;
+font-weight: bold;
+padding-bottom: 20px;
+text-transform: uppercase;
+}
+.main {
+text-align: center;
+background-color: #fff;
+width: 300px;
+height: 350px;
+margin: auto;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 50px;
+border: 2px solid;
+transition: all 1s;
+}
+.main:hover {
+box-shadow: 8px 5px white;
+}
+
+body {
+height:100%;
+width:100%;
+border:0px;
+margin:0px;
+padding:0px;
+background-color: black;
+}
+</style>
+</head>
+<body>
+<div class='main'>
+	<div class='title'>{{ .Name }}</div>
+	<p>average temperature</p>
+	<p>in future N days:</p>
+	{{range $x := .TempAvgs -}}
+	<p>{{ $x }} ℃</p>
+	{{- end}}
+</div>
+</body>
+</html>

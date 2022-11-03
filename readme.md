@@ -35,11 +35,11 @@ Golang Restful for Weather is a project that aims provide restful api for weathe
 
 </p>
 
-## toc
+## TOC
 
 - [Features](#Features)
 - [Run](#Run)
-
+- [Thanks](#Thanks)
 
 ### Features
 
@@ -64,6 +64,12 @@ when you hit "localhost:8081/api/CITYNAME", such as "Beijing", you will get a js
 when you hit "localhost:8081/api/CITYNAME/DAYS", such as "localhost:8081/api/Beijing/4", you will get a json response including temperatures of the city that you specified in future some days.
 
 
+### Thanks
+
+* [Tencent AIDesign](https://ailogo.qq.com/): generate logo and free
+* [mux](https://github.com/gorilla/mux): a powerful HTTP router and URL matcher for building Go web Servers
+* [JSON-to-Go](https://mholt.github.io/json-to-go/): this tool instantly converts JSON into a Go type definition
+* other web resources
 
 <!-- links -->
 [your-project-path]:ginhton/golang-restful-for-weather
